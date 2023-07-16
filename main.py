@@ -1,14 +1,13 @@
-days_in_a_year = 365
-hours_in_a_day = 24
-minutes_in_an_hour = 60
-
-prompt = "Enter number of days you'd \nlike to translate into minutes \nor enter 'x' to exit: \n"
+DAYS_IN_A_YEAR = 365
+HOURS_IN_A_DAY = 24
+MINUTES_IN_AN_HOUR = 60
+PROMPT = "Enter number of days you'd \nlike to translate into minutes \nor enter 'x' to exit: \n"
 
 def days_to_minutes(days):
-    return days * hours_in_a_day * minutes_in_an_hour
+    return days * HOURS_IN_A_DAY * MINUTES_IN_AN_HOUR
 
 while True:
-    user_input = input(prompt)
+    user_input = input(PROMPT)
 
     if user_input == "x":
         print("\nExiting...\nEnjoy your day!")
