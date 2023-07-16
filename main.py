@@ -1,1 +1,1 @@
-print("Hello World")
+print(365 * 24 * 60)
