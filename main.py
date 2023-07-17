@@ -3,6 +3,9 @@ HOURS_IN_A_DAY = 24
 MINUTES_IN_AN_HOUR = 60
 PROMPT = "Enter number of days you'd \nlike to translate into minutes \nor enter 'x' to exit: \n\n"
 
+def days_to_years(days):
+    return days / DAYS_IN_A_YEAR
+
 def days_to_minutes(days):
     return days * HOURS_IN_A_DAY * MINUTES_IN_AN_HOUR
 
