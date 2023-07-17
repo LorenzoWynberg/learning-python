@@ -113,16 +113,20 @@ def main():
             print(PROMPT_EXIT)
             break
 
-        print("\n-----------------------------------------------")
+        result = f"{days} days"
+
         if unit_amount == 1:
-            print(f"{days} days make a {unit_name[:-1]}")
+            result += f"{days} days make a {unit_name[:-1]}"
         elif unit_amount > 1:
             unit_amount = round(unit_amount, 2)
-            print(f"{days} days are {unit_amount} {unit_name}")
+            result += f"{days} days are {unit_amount} {unit_name}"
         else:
             unit_amount = unit_amount * 100
             unit_amount = round(unit_amount, 2)
-            print(f"{days} days are {unit_amount}% of a {unit_name[:-1]}")
+            result += f"{days} days are {unit_amount}% of a {unit_name[:-1]}"
+
+        print("\n-----------------------------------------------")
+        print(result)
         print("-----------------------------------------------\n")
 
 if __name__ == "__main__":
