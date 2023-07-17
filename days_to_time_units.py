@@ -1,22 +1,48 @@
 DAYS_IN_A_YEAR = 365
+DAYS_IN_MONTH = 30
 HOURS_IN_A_DAY = 24
 MINUTES_IN_AN_HOUR = 60
-PROMPT_WELCOME = "Welcome to the Days to Minutes Converter!\n"
-PROMPT_EXIT = "\nExiting...\nEnjoy your day!\n"
-PROMPT_NUM_DAYS = "Enter number of days \nyou'd like to convert \nor enter x to exit: \n\n"
-PROMPT_UNIT_NAME = "\nWhat would you like \nto convert to? \n\nType:\n    1 for minutes, \n    2 for hours, \n    3 for months, \n    4 for years or \n    x to exit: \n\n"
+SECONDS_IN_A_MINUTE = 60
+PROMPT_WELCOME = "Welcome to the Days to Time Unit Converter!\n"
+PROMPT_EXIT = """
+Exiting...
+Enjoy your day!
+
+"""
+PROMPT_NUM_DAYS = """
+Enter number of days
+you'd like to convert
+or enter x to exit:
+
+"""
+PROMPT_UNIT_NAME = """
+What would you like
+to convert to?
+
+Type:
+    1 for seconds,
+    2 for minutes,
+    3 for hours,
+    4 for months,
+    5 for years or
+    x to exit:
+
+"""
 
 def days_to_years(days):
     return days / DAYS_IN_A_YEAR
 
 def days_to_months(days):
-    return days_to_years(days) * 12
+    return days / DAYS_IN_MONTH
 
 def days_to_hours(days):
     return days * HOURS_IN_A_DAY
 
 def days_to_minutes(days):
-    return days * HOURS_IN_A_DAY * MINUTES_IN_AN_HOUR
+    return days_to_hours(days) * MINUTES_IN_AN_HOUR
+
+def days_to_seconds(days):
+    return days_to_minutes(days) * SECONDS_IN_A_MINUTE
 
 def get_valid_days_input():
     while True:
@@ -49,12 +75,14 @@ def get_valid_unit_input():
 
         match user_input:
             case 1:
-                return "minutes"
+                return "seconds"
             case 2:
-                return "hours"
+                return "minutes"
             case 3:
-                return "months"
+                return "hours"
             case 4:
+                return "months"
+            case 5:
                 return "years"
             case "x":
                 return None
@@ -65,6 +93,8 @@ def get_valid_unit_input():
 
 def get_unit_amount(days, unit_name):
     match unit_name:
+        case "seconds":
+            return days_to_seconds(days)
         case "minutes":
             return days_to_minutes(days)
         case "hours":
