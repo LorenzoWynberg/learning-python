@@ -69,9 +69,9 @@ def get_valid_days_input():
 
 def get_valid_unit_input():
     while True:
-        user_input = input(PROMPT_UNIT_NAME).lower()
+        user_input = input(PROMPT_UNIT_NAME)
 
-        if user_input == 'x':
+        if user_input.lower() == 'x':
             return None
 
         unit_name = UNIT_NAME_MAPPINGS.get(user_input)
