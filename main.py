@@ -9,6 +9,9 @@ def days_to_years(days):
 def days_to_minutes(days):
     return days * HOURS_IN_A_DAY * MINUTES_IN_AN_HOUR
 
+def days_to_hours(days):
+    return days * HOURS_IN_A_DAY
+
 def get_valid_days_input():
     while True:
         user_input = input(PROMPT)
