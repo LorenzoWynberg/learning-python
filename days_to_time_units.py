@@ -84,10 +84,6 @@ def get_valid_unit_input():
                 return "months"
             case 5:
                 return "years"
-            case "x":
-                return None
-            case "X":
-                return None
             case _:
                 print("\nError: Please enter a valid unit\n")
 
