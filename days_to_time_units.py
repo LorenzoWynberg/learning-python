@@ -48,7 +48,7 @@ def get_valid_days_input():
     while True:
         user_input = input(PROMPT_NUM_DAYS)
 
-        if user_input == "x" or user_input == "X":
+        if user_input.lower() == "x":
             return None
 
         try:
@@ -64,7 +64,7 @@ def get_valid_unit_input():
     while True:
         user_input = input(PROMPT_UNIT_NAME)
 
-        if user_input == "x" or user_input == "X":
+        if user_input.lower() == "x":
             return None
 
         try:
