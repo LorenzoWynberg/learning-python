@@ -88,7 +88,7 @@ UNIT_CONVERSIONS = {
     "years": days_to_years,
 }
 
-def get_unit_amount(days, unit_name):
+def convert_days_to_unit(days, unit_name):
     conversion_function = UNIT_CONVERSIONS.get(unit_name)
     if conversion_function:
         return conversion_function(days)
@@ -105,7 +105,7 @@ def main():
             print(PROMPT_EXIT)
             break
 
-        unit_amount = get_unit_amount(days, unit_name)
+        unit_amount = convert_days_to_unit(days, unit_name)
         if unit_amount is None:
             print(PROMPT_EXIT)
             break
