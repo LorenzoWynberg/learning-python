@@ -80,20 +80,18 @@ def get_valid_unit_input():
 
         print("\nError: Please enter a valid unit\n")
 
+UNIT_CONVERSIONS = {
+    "seconds": days_to_seconds,
+    "minutes": days_to_minutes,
+    "hours": days_to_hours,
+    "months": days_to_months,
+    "years": days_to_years,
+}
+
 def get_unit_amount(days, unit_name):
-    match unit_name:
-        case "seconds":
-            return days_to_seconds(days)
-        case "minutes":
-            return days_to_minutes(days)
-        case "hours":
-            return days_to_hours(days)
-        case "months":
-            return days_to_months(days)
-        case "years":
-            return days_to_years(days)
-        case _:
-            return None
+    conversion_function = UNIT_CONVERSIONS.get(unit_name)
+    if conversion_function:
+        return conversion_function(days)
 
 def main():
     while True:
