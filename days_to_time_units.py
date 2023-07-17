@@ -20,11 +20,11 @@ What would you like
 to convert to?
 
 Type:
-    1 for seconds,
-    2 for minutes,
-    3 for hours,
-    4 for months,
-    5 for years or
+    secs for seconds,
+    mins for minutes,
+    hrs for hours,
+    mos for months,
+    yrs for years or
     x to exit:
 
 """
@@ -63,27 +63,21 @@ def get_valid_days_input():
 def get_valid_unit_input():
     while True:
         user_input = input(PROMPT_UNIT_NAME)
-
-        if user_input.lower() == "x":
-            return None
-
-        try:
-            user_input = int(user_input)
-        except ValueError:
-            print("\nError: Please enter a numeric value\n")
-            continue
+        user_input = user_input.lower()
 
         match user_input:
-            case 1:
+            case 'secs':
                 return "seconds"
-            case 2:
+            case 'mins':
                 return "minutes"
-            case 3:
+            case 'hrs':
                 return "hours"
-            case 4:
+            case 'mos':
                 return "months"
-            case 5:
+            case 'yrs':
                 return "years"
+            case 'x':
+                return None
             case _:
                 print("\nError: Please enter a valid unit\n")
 
