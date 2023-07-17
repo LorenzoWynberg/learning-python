@@ -3,6 +3,13 @@ DAYS_IN_MONTH = 30
 HOURS_IN_A_DAY = 24
 MINUTES_IN_AN_HOUR = 60
 SECONDS_IN_A_MINUTE = 60
+UNIT_NAME_MAPPINGS = {
+    'secs': 'seconds',
+    'mins': 'minutes',
+    'hrs': 'hours',
+    'mos': 'months',
+    'yrs': 'years'
+}
 PROMPT_WELCOME = "Welcome to the Days to Time Unit Converter!\n"
 PROMPT_EXIT = """
 Exiting...
@@ -62,24 +69,16 @@ def get_valid_days_input():
 
 def get_valid_unit_input():
     while True:
-        user_input = input(PROMPT_UNIT_NAME)
-        user_input = user_input.lower()
+        user_input = input(PROMPT_UNIT_NAME).lower()
 
-        match user_input:
-            case 'secs':
-                return "seconds"
-            case 'mins':
-                return "minutes"
-            case 'hrs':
-                return "hours"
-            case 'mos':
-                return "months"
-            case 'yrs':
-                return "years"
-            case 'x':
-                return None
-            case _:
-                print("\nError: Please enter a valid unit\n")
+        if user_input == 'x':
+            return None
+
+        unit_name = UNIT_NAME_MAPPINGS.get(user_input)
+        if unit_name:
+            return unit_name
+
+        print("\nError: Please enter a valid unit\n")
 
 def get_unit_amount(days, unit_name):
     match unit_name:
@@ -113,17 +112,17 @@ def main():
             print(PROMPT_EXIT)
             break
 
-        result = f"{days} days"
+        result = f"{days} days "
 
         if unit_amount == 1:
-            result += f"{days} days make a {unit_name[:-1]}"
+            result += f"make a {unit_name[:-1]}"
         elif unit_amount > 1:
             unit_amount = round(unit_amount, 2)
-            result += f"{days} days are {unit_amount} {unit_name}"
+            result += f"are {unit_amount} {unit_name}"
         else:
             unit_amount = unit_amount * 100
             unit_amount = round(unit_amount, 2)
-            result += f"{days} days are {unit_amount}% of a {unit_name[:-1]}"
+            result += f"are {unit_amount}% of a {unit_name[:-1]}"
 
         print("\n-----------------------------------------------")
         print(result)
