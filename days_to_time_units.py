@@ -93,8 +93,8 @@ def convert_days_to_unit(days, unit_name):
     if amount:
         return amount(days)
 
-def format_num(unit_amount):
-    return f"{unit_amount:.0f}" if unit_amount.is_integer() else f"{unit_amount:.2f}"
+def format_num(num):
+    return "{:.2f}".format(num).rstrip('0').rstrip('.')
 
 def main():
     while True:
