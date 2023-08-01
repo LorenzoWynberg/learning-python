@@ -3,13 +3,6 @@ DAYS_IN_MONTH = 30
 HOURS_IN_A_DAY = 24
 MINUTES_IN_AN_HOUR = 60
 SECONDS_IN_A_MINUTE = 60
-UNIT_NAME_MAPPINGS = {
-    'secs': 'seconds',
-    'mins': 'minutes',
-    'hrs': 'hours',
-    'mos': 'months',
-    'yrs': 'years'
-}
 PROMPT_WELCOME = "Welcome to the Days to Time Unit Converter!\n"
 PROMPT_EXIT = """
 Exiting...
@@ -22,6 +15,13 @@ you'd like to convert
 or enter x to exit:
 
 """
+UNIT_NAME_MAPPINGS = {
+    'secs': 'seconds',
+    'mins': 'minutes',
+    'hrs': 'hours',
+    'mos': 'months',
+    'yrs': 'years'
+}
 PROMPT_UNIT_NAME = """
 What would you like
 to convert to?
