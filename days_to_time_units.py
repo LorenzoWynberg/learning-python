@@ -93,6 +93,9 @@ def convert_days_to_unit(days, unit_name):
     if amount:
         return amount(days)
 
+def format_num(unit_amount):
+    return f"{unit_amount:.0f}" if unit_amount.is_integer() else f"{unit_amount:.2f}"
+
 def main():
     while True:
         days = get_valid_days_input()
@@ -115,12 +118,12 @@ def main():
         if unit_amount == 1:
             result += f"make a {unit_name[:-1]}"
         elif unit_amount > 1:
-            unit_amount = round(unit_amount, 2)
+            unit_amount = format_num(unit_amount)
             result += f"are {unit_amount} {unit_name}"
         else:
-            unit_amount = unit_amount * 100
-            unit_amount = round(unit_amount, 2)
-            result += f"are {unit_amount}% of a {unit_name[:-1]}"
+            percentage = unit_amount * 100
+            percentage = format_num(percentage)
+            result += f"are {percentage}% of a {unit_name[:-1]}"
 
         print("\n-----------------------------------------------")
         print(result)
