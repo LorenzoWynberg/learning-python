@@ -133,7 +133,6 @@ def main():
     while True:
         user_input = collect_user_input()
         if user_input is None:
-            print(PROMPT_EXIT)
             break
         days, unit_name = user_input
 
