@@ -109,6 +109,21 @@ def collect_user_input():
 
     return days, unit_name
 
+def get_result(days, unit_name, unit_amount):
+    result = f"{days} days "
+
+    if unit_amount == 1:
+        result += f"make a {unit_name[:-1]}"
+    elif unit_amount > 1:
+        unit_amount = format_num(unit_amount)
+        result += f"are {unit_amount} {unit_name}"
+    else:
+        percentage = unit_amount * 100
+        percentage = format_num(percentage)
+        result += f"are {percentage}% of a {unit_name[:-1]}"
+
+    return result
+
 def main():
     while True:
         user_input = collect_user_input()
@@ -122,17 +137,7 @@ def main():
             print(PROMPT_EXIT)
             break
 
-        result = f"{days} days "
-
-        if unit_amount == 1:
-            result += f"make a {unit_name[:-1]}"
-        elif unit_amount > 1:
-            unit_amount = format_num(unit_amount)
-            result += f"are {unit_amount} {unit_name}"
-        else:
-            percentage = unit_amount * 100
-            percentage = format_num(percentage)
-            result += f"are {percentage}% of a {unit_name[:-1]}"
+        result = get_result(days, unit_name, unit_amount)
 
         print("\n-----------------------------------------------")
         print(result)
