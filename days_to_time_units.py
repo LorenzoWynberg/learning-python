@@ -124,6 +124,11 @@ def get_result(days, unit_name, unit_amount):
 
     return result
 
+def print_result(result):
+    print("\n-----------------------------------------------")
+    print(result)
+    print("-----------------------------------------------\n")
+
 def main():
     while True:
         user_input = collect_user_input()
@@ -138,10 +143,7 @@ def main():
             break
 
         result = get_result(days, unit_name, unit_amount)
-
-        print("\n-----------------------------------------------")
-        print(result)
-        print("-----------------------------------------------\n")
+        print_result(result)
 
 if __name__ == "__main__":
     main()
