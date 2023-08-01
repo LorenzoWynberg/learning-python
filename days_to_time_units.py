@@ -96,17 +96,26 @@ def convert_days_to_unit(days, unit_name):
 def format_num(num):
     return "{:.2f}".format(num).rstrip('0').rstrip('.')
 
+def collect_user_input():
+    days = get_valid_days_input()
+    if days is None:
+        print(PROMPT_EXIT)
+        return None
+
+    unit_name = get_valid_unit_input()
+    if unit_name is None:
+        print(PROMPT_EXIT)
+        return None
+
+    return days, unit_name
+
 def main():
     while True:
-        days = get_valid_days_input()
-        if days is None :
+        user_input = collect_user_input()
+        if user_input is None:
             print(PROMPT_EXIT)
             break
-
-        unit_name = get_valid_unit_input()
-        if unit_name is None:
-            print(PROMPT_EXIT)
-            break
+        days, unit_name = user_input
 
         unit_amount = convert_days_to_unit(days, unit_name)
         if unit_amount is None:
