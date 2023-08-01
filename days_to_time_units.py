@@ -89,9 +89,9 @@ UNIT_CONVERSIONS = {
 }
 
 def convert_days_to_unit(days, unit_name):
-    conversion_function = UNIT_CONVERSIONS.get(unit_name)
-    if conversion_function:
-        return conversion_function(days)
+    amount = UNIT_CONVERSIONS.get(unit_name)
+    if amount:
+        return amount(days)
 
 def main():
     while True:
