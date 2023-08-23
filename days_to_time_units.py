@@ -1,40 +1,5 @@
-DAYS_IN_A_YEAR = 365
-DAYS_IN_MONTH = 30
-HOURS_IN_A_DAY = 24
-MINUTES_IN_AN_HOUR = 60
-SECONDS_IN_A_MINUTE = 60
-PROMPT_WELCOME = "Welcome to the Days to Time Unit Converter!\n"
-PROMPT_EXIT = """
-Exiting...
-Enjoy your day!
-
-"""
-PROMPT_NUM_DAYS = """
-Enter number of days
-you'd like to convert
-or enter x to exit:
-
-"""
-UNIT_NAME_MAPPINGS = {
-    'secs': 'seconds',
-    'mins': 'minutes',
-    'hrs': 'hours',
-    'mos': 'months',
-    'yrs': 'years'
-}
-PROMPT_UNIT_NAME = """
-What would you like
-to convert to?
-
-Type:
-    secs for seconds,
-    mins for minutes,
-    hrs for hours,
-    mos for months,
-    yrs for years or
-    x to exit:
-
-"""
+from constants.data import *
+from constants.prompts import *
 
 def days_to_years(days):
     return days / DAYS_IN_A_YEAR
